@@ -5,6 +5,17 @@ urlpatterns = [
     path('', views.home, name='home'),
     # path('api/kobo-webhook/', views.kobo_webhook, name='kobo_webhook'),
     path('api/kobo-webhook/', views.save_all_data, name='save_all_data'),
-    path('show-details/', views.show_details, name='show_details')
+    path('show-details/', views.show_details, name='show_details'),
+
+ 
+    #api for student details
+    path('api/student/create/',views.create_student, name='create_student'),
+
+    #api for student fee
+    path('api/studentfee/create/',views.create_student_fee, name='create_student_fee'),
+    
+
+
+   
 
 ]

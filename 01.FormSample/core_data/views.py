@@ -9,7 +9,7 @@ from django.views.decorators.http import require_POST
 from .models import User_Details, Response_table
 
 logger = logging.getLogger(__name__)
-
+from .models import Student_fee, Studentdetails
 
 # Create your views here.
 def home(request):
@@ -107,3 +107,49 @@ def show_details(request):
     key = ['name', 'contact', 'gender', 'age','_submitted_by','family_no']
     print(responses)
     return render(request, 'show_details.html', {'responses': responses, 'keys': key})
+
+@csrf_exempt
+def create_student(request):
+    data = json.loads(request.body)
+    student = Studentdetails.objects.create(
+    Name = data['Name'],
+    Std_id = data['Std_id'],
+    Contact = data['Contact'],
+    Email = data['Email'],
+    Age = data['Age'],
+    Parents_Name = data['Parents_Name'],
+    Location = data['Location'],
+    Faculty = data['Faculty'],
+    Batch = data['Batch']
+        
+    )
+    return JsonResponse({'status': 'success', 'student_id': student.id}, status=201)
+
+@csrf_exempt
+@require_POST
+def create_student_fee(request):
+    try:
+        data = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    
+    try:
+        student = Studentdetails.objects.get(Std_id=data['Std_id'])
+    except Studentdetails.DoesNotExist:
+        return JsonResponse({'error': f"Student with Std_id={data['Std_id']} not found"}, status=404)
+    except KeyError:
+        return JsonResponse({'error': 'Missing Std_id field'}, status=400)
+    
+    try:
+        fee = Student_fee.objects.create(
+            Std_id=student,
+            Semester=data['Semester'],
+            Fee_amount=data['Fee_amount'],
+            Paid_amt=data['Paid_amt'],
+            Due_amt=data['Due_amt'],
+            Payment_date_and_time=data['payment_date']
+        )
+    except KeyError as e:
+        return JsonResponse({'error': f'Missing field: {e}'}, status=400)
+    
+    return JsonResponse({'status': 'success', 'fee_id': fee.id}, status=201)
