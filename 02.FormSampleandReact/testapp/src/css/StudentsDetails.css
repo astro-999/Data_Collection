@@ -1,0 +1,253 @@
+/* Search Section */
+.student-search-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.student-search-container form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+}
+
+.student-search-container input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.student-search-container input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.student-search-container button {
+    padding: 10px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.student-search-container button:hover {
+    background-color: #45a049;
+}
+
+/* Student Details Section */
+.student-details-container {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student-details-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.student-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.student-details-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+}
+
+.student-details-table td:first-child {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    color: #333;
+    width: 30%;
+}
+
+.student-details-table tr:nth-child(even) td:first-child {
+    background-color: #f0f0f0;
+}
+
+.student-details-table td:last-child {
+    color: #555;
+}
+
+/* Fee Details Section */
+.fee-details-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.fee-details-header h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+.fee-details-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fee-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.fee-details-table thead {
+    background-color: #f0f0f0;
+}
+
+.fee-details-table th {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+}
+
+.fee-details-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    color: #555;
+}
+
+.fee-details-table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+.fee-details-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* ===== All Students List Table ===== */
+.student-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.student-table thead {
+    background: linear-gradient(135deg, #2d6a4f, #40916c);
+}
+
+.student-table thead th {
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-bottom: 2px solid #1b4332;
+}
+
+.student-table thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.student-table thead th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.student-table tbody tr {
+    background-color: #ffffff;
+    transition: all 0.25s ease;
+}
+
+.student-table tbody tr:nth-child(even) {
+    background-color: #f1f8f5;
+}
+
+.student-table tbody tr:hover {
+    background-color: #d8f3dc;
+    transform: scale(1.005);
+    box-shadow: 0 2px 8px rgba(45, 106, 79, 0.12);
+}
+
+.student-table tbody td {
+    padding: 13px 18px;
+    color: #333;
+    border-bottom: 1px solid #e9ecef;
+    white-space: nowrap;
+}
+
+.student-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.student-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+.student-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+/* Highlight the name column */
+.student-table tbody td:first-child {
+    font-weight: 600;
+    color: #1b4332;
+}
+
+/* ID column monospace style */
+.student-table tbody td:nth-child(3) {
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+    color: #40916c;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .student-search-container form {
+        flex-direction: column;
+    }
+
+    .student-details-table,
+    .fee-details-table,
+    .student-table {
+        font-size: 13px;
+    }
+
+    .student-details-table td,
+    .fee-details-table td,
+    .fee-details-table th,
+    .student-table td,
+    .student-table th {
+        padding: 8px 10px;
+    }
+
+    .student-details-container h1,
+    .fee-details-header h1 {
+        font-size: 20px;
+    }
+
+    /* Horizontal scroll for small screens */
+    .student-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 8px;
+    }
+}

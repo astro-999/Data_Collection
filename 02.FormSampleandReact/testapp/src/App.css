@@ -1,0 +1,10 @@
+/* css for app.jsx */
+.app {
+  text-align: center;
+  padding-top: 60px; /* offset for fixed navbar */
+}
+h3 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
